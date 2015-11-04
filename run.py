@@ -7,7 +7,6 @@
 from bottle import route, run, template, request, response, static_file, redirect
 import bottle
 import os
-import requests
 import json
 
 
@@ -37,11 +36,14 @@ def send_static(filename):
 
 @route('/', method='GET')
 def main_page():
+    os.system("echo 'hello world' >test.txt")
     return template('index')
 
 @route('/', method='POST')
 def main_page():
-    print json.load(request.body)
+    print ('Git repo updated! The following message was received: \n' + json.load(request.body))
+    print('\nNow trying to update to the latest version...')
+
 
 
 #command for running the service local.    
