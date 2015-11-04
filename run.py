@@ -39,9 +39,13 @@ def send_static(filename):
 def main_page():
     return template('index')
 
+@route('/', method='POST')
+def main_page():
+    print json.load(request.body)
+
 
 #command for running the service local.    
-run(host='localhost', port=8080, debug=True, reloader=True)
+#run(host='localhost', port=8080, debug=True, reloader=True)
 
 #command for running the server 'global'
-#run(host='0.0.0.0', port=8080, debug=True, reloader=True)
+run(host='0.0.0.0', port=8080, debug=True, reloader=True)
