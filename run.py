@@ -6,7 +6,7 @@
 #All imports for the project
 from bottle import route, run, template, request, response, static_file, redirect
 import bottle
-import os
+import subprocess
 import json
 
 
@@ -36,14 +36,17 @@ def send_static(filename):
 
 @route('/', method='GET')
 def main_page():
-    os.system("echo 'hello world' >test.txt")
+    command = subprocess.call(['git', 'status'])
     return template('index')
 
 @route('/', method='POST')
 def main_page():
-    print ('Git repo updated! The following message was received: \n' + json.load(request.body))
-    print('\nNow trying to update to the latest version...')
-
+    print ('Git repo updated! The following message was received:')
+    print (json.load(request.body))
+    print('\nNow trying to pull the latest version...')
+    status = subprocess.call(['git', 'pull'])
+    print('\nFinished pulling, status code:')
+    print(status)
 
 
 #command for running the service local.    
