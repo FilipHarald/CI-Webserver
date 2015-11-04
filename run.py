@@ -41,7 +41,7 @@ def main_page():
 
 @route('/', method='POST')
 def main_page():
-    print ('Git repo updated! The following message was received:')
+    print ('Git repo updated!! The following message was received:')
     print (json.load(request.body))
     print('\nNow trying to pull the latest version...')
     status = subprocess.call(['git', 'pull'])
