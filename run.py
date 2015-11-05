@@ -14,6 +14,7 @@ latest_author = ""
 @route('/', method='GET')
 def main_page():
     command = subprocess.call(['git', 'status'])
+
     return template('index', latest_commit_by=latest_author)
 
 @route('/', method='POST')
@@ -22,7 +23,7 @@ def main_page():
     test_dict = request.json
     print(test_dict)
     print('Updating latest commit by to: ' + test_dict.get('commits')[0].get('author').get('username'))
-    latestAuthor=test_dict.get('commits')[0].get('author').get('username')
+    latest_author=test_dict.get('commits')[0].get('author').get('username')
     print('\nNow trying to pull the latest version...')
     status = subprocess.call(['git', 'pull'])
     print('\nFinished pulling, status code:')
