@@ -33,7 +33,7 @@ def main_page():
 #run(host='localhost', port=8080, debug=True, reloader=True)
 
 #command for running the server 'global'
-run(host='0.0.0.0', port=8080, debug=True, reloader=True)
+run(host='0.0.0.0', port=3000, debug=True, reloader=True)
 
 '''---------------------------- Code for Routes with static files -----------------------------'''
 
