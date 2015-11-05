@@ -12,17 +12,17 @@ import json
 latest_author = "lol"
 
 @route('/', method='GET')
-def main_page():
+def main_page(self):
     command = subprocess.call(['git', 'status'])
     print(self.latest_author)
     return template('index', latest_commit_by=latest_author)
 
 @route('/', method='POST')
-def main_page():
+def main_page(self):
     print ('Git repo updated!! The following message was received:')
     test_dict = request.json
     print(test_dict)
-    global latest_author=test_dict.get('commits')[0].get('author').get('username')
+    self.latest_author = test_dict.get('commits')[0].get('author').get('username')
     print('Updating latest commit by to: ' + latest_author)
 
     print('\nNow trying to pull the latest version...')
