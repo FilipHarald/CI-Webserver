@@ -14,7 +14,7 @@ latest_author = ""
 @route('/', method='GET')
 def main_page():
     command = subprocess.call(['git', 'status'])
-
+    print(latest_author)
     return template('index', latest_commit_by=latest_author)
 
 @route('/', method='POST')
