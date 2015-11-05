@@ -22,8 +22,9 @@ def main_page():
     print ('Git repo updated!! The following message was received:')
     test_dict = request.json
     print(test_dict)
-    print('Updating latest commit by to: ' + test_dict.get('commits')[0].get('author').get('username'))
     latest_author=test_dict.get('commits')[0].get('author').get('username')
+    print('Updating latest commit by to: ' + latest_author)
+
     print('\nNow trying to pull the latest version...')
     status = subprocess.call(['git', 'pull'])
     print('\nFinished pulling, status code:')
