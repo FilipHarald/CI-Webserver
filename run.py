@@ -8,23 +8,21 @@ from bottle import route, run, template, request, response, static_file, redirec
 import bottle
 import subprocess
 import json
-
-latest_author = "lol"
+import AuthorName
 
 @route('/', method='GET')
-def main_page(self):
+def main_page():
     command = subprocess.call(['git', 'status'])
-    print(self.latest_author)
-    return template('index', latest_commit_by=latest_author)
+    print(AuthorName.latest_author)
+    return template('index', latest_commit_by=AuthorName.latest_author)
 
 @route('/', method='POST')
-def main_page(self):
+def main_page():
     print ('Git repo updated!! The following message was received:')
     test_dict = request.json
     print(test_dict)
-    self.latest_author = test_dict.get('commits')[0].get('author').get('username')
-    print('Updating latest commit by to: ' + latest_author)
-
+    print('Updating latest commit by to: ' + AuthorName.latest_author)
+    AuthorName.set_name(test_dict.get('commits')[0].get('author').get('username'))
     print('\nNow trying to pull the latest version...')
     status = subprocess.call(['git', 'pull'])
     print('\nFinished pulling, status code:')
