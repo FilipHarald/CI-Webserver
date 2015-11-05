@@ -10,6 +10,8 @@
        index.tpl
        <br>
        Latest commit made by: {{latest_commit_by}}
+       <br>
+       ajajaj
     </section>
 
 </body>
