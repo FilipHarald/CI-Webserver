@@ -9,12 +9,12 @@ import bottle
 import subprocess
 import json
 
-latest_author = ""
+latest_author = "lol"
 
 @route('/', method='GET')
 def main_page():
     command = subprocess.call(['git', 'status'])
-    print(latest_author)
+    print(self.latest_author)
     return template('index', latest_commit_by=latest_author)
 
 @route('/', method='POST')
@@ -22,7 +22,7 @@ def main_page():
     print ('Git repo updated!! The following message was received:')
     test_dict = request.json
     print(test_dict)
-    latest_author=test_dict.get('commits')[0].get('author').get('username')
+    global latest_author=test_dict.get('commits')[0].get('author').get('username')
     print('Updating latest commit by to: ' + latest_author)
 
     print('\nNow trying to pull the latest version...')
