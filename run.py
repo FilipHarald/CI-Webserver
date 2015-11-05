@@ -8,7 +8,7 @@ from bottle import route, run, template, request, response, static_file, redirec
 import bottle
 import subprocess
 import json
-import AuthorName
+from AuthorName import AuthorName
 
 @route('/', method='GET')
 def main_page():
