@@ -8,7 +8,8 @@
             <h1>CI-webbserver</h1>
         </header>
        index.tpl
-       Latest commit made by: {{latestCommitBy}}
+       <br>
+       Latest commit made by: {{latest_commit_by}}
     </section>
 
 </body>
