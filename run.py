@@ -19,8 +19,9 @@ def main_page():
 @route('/', method='POST')
 def main_page():
     print ('Git repo updated!! The following message was received:')
-    print(request.headers['Accept-Charset'].split(','))
-    print (json.load(request.body))
+    test_dict = request.json
+    print(test_dict)
+    print(test_dict.get('commits'))
     payload_data = json.load(request.body)
     print('Updating latest commit by...')
     latestAuthor=payload_data.get('commits')[0].get('author').get('username')
