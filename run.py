@@ -18,7 +18,7 @@ def main_page():
 
 @route('/', method='POST')
 def main_page():
-    print ('Git repo updated!! The following message was received:')
+    print('Git repo updated!! The following message was received:')
     test_dict = request.json
     print(test_dict)
     print('Updating latest commit by to: ' + AuthorName.latest_author)
