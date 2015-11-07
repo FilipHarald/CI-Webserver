@@ -16,6 +16,7 @@ def main_page():
     print(AuthorName.latest_author)
     return template('index', latest_commit_by=AuthorName.latest_author)
 
+#This method is called by the GitHub webhook
 @route('/', method='POST')
 def main_page():
     print ('Git repo updated!! The following message was received:')
