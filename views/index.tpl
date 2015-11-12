@@ -5,7 +5,7 @@
 <body>
     <section>
         <header>
-            <h1>OLOFS-webbserver</h1>
+            <h1>FILIPS-webbserver</h1>
         </header>
        index.tpl
        <br>
